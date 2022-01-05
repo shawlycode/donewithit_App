@@ -9,15 +9,20 @@ import RegisterScreen from "../AuthScreens/RegisterScreen";
 import Card from "../Card";
 import CategoryScreen from "../CategoryScreen";
 import CardDetailsScreen from "../CardDetailsScreen";
+import Tabs from "../Navigators/Tabs";
 
 const Stack = createStackNavigator();
 
 const Route = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="home" component={Tabs} />
         <Stack.Screen name="signin" component={SignInScreen} />
-        <Stack.Screen name="home" component={HomeScreen} />
         <Stack.Screen name="ListDetails" component={CategoryScreen} />
         <Stack.Screen name="cardDetails" component={CardDetailsScreen} />
 
