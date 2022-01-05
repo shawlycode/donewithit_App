@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FlatList, Text, View, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default function Card({ navigation }) {
+export default function Card({ route, navigation }) {
   const [cardData, setCardData] = useState([
     {
       id: "bd7acbea-c1b1-46c2-aed5-3a53abb",
@@ -31,7 +31,7 @@ export default function Card({ navigation }) {
             borderRadius: 10,
             marginTop: 20,
           }}
-          onPress={() => navigation.navigate("ListDetails", item)}
+          onPress={() => navigation.navigate("ListDetails", cardData)}
         >
           <Image
             source={item.img}
