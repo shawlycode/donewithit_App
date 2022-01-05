@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-const CategoryScreen = ({ navigation }) => {
+const CategoryScreen = ({ route, navigation }) => {
   console.log(route.params);
   return (
     <View>
