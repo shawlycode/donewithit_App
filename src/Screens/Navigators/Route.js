@@ -9,6 +9,7 @@ import RegisterScreen from "../AuthScreens/RegisterScreen";
 import Card from "../Card";
 import CategoryScreen from "../CategoryScreen";
 import CardDetailsScreen from "../CardDetailsScreen";
+import CategoryModal from "../../Components/Const/CategoryModal";
 import Tabs from "../Navigators/Tabs";
 
 const Stack = createStackNavigator();
@@ -25,6 +26,7 @@ const Route = () => {
         <Stack.Screen name="signin" component={SignInScreen} />
         <Stack.Screen name="ListDetails" component={CategoryScreen} />
         <Stack.Screen name="cardDetails" component={CardDetailsScreen} />
+        <Stack.Screen name="CategoryModal" component={CategoryModal} />
 
         <Stack.Screen
           name="register"
