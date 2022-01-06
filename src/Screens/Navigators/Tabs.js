@@ -19,11 +19,28 @@ const Tabs = () => {
         component={HomeScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <MaterialIcons name="dynamic-feed" size={30} />
+            <MaterialIcons
+              name="dynamic-feed"
+              size={38}
+              color={focused ? "#9ef01a" : "#e71d36"}
+            />
           ),
         }}
       />
-      <Tab.Screen name="Sell" component={Sell} />
+      <Tab.Screen
+        name="Sell"
+        component={Sell}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <MaterialIcons
+              name="add-box"
+              size={38}
+              color={focused ? "#9ef01a" : "#e71d36"}
+            />
+          ),
+        }}
+      />
       <Tab.Screen
         name="Account"
         component={Account}
@@ -31,8 +48,8 @@ const Tabs = () => {
           tabBarIcon: ({ focused }) => (
             <MaterialIcons
               name="switch-account"
-              size={30}
-              color={focused ? COLORS.primary : COLORS.secondary}
+              size={38}
+              color={focused ? "#9ef01a" : "#e71d36"}
             />
           ),
         }}
