@@ -2,11 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 const Feeds = () => {
-  return (
-    <View>
-      <Text>FEED PAGE</Text>
-    </View>
-  );
+  return <View></View>;
 };
 
 export default Feeds;

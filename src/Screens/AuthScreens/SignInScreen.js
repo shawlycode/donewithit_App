@@ -49,11 +49,7 @@ const SignInScreen = ({ navigation }) => {
         account
       </Text>
       <View style={styles.form}>
-        <TextInput
-          placeholder="Email"
-          style={styles.inputText}
-          textContentType="email"
-        />
+        <TextInput placeholder="Email" style={styles.inputText} type="email" />
         <View style={styles.passwordContainer}>
           <View style={{ flexDirection: "row" }}>
             <Entypo name="lock" size={24} color="#D85A27" />
@@ -91,7 +87,7 @@ const SignInScreen = ({ navigation }) => {
 
       <View style={{ flex: 3, alignItems: "center" }}>
         <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <Text style={{ fontWeight: "bold", fontSize: "20" }}>OR</Text>
+          <Text style={{ fontWeight: "bold", fontSize: 20 }}>OR</Text>
         </View>
         <TouchableOpacity style={styles.socialBtn}>
           <View
