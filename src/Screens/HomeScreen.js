@@ -35,7 +35,6 @@ const HomeScreen = ({ navigation }) => {
                   height: 70,
                   borderBottomLeftRadius: 10,
                   borderBottomRightRadius: 10,
-                  shadowOffset: 10,
                   shadowOpacity: 4,
                   elevation: 0.6,
                 }}

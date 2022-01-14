@@ -11,6 +11,8 @@ import CardDetailsScreen from "../CardDetailsScreen";
 import CategoryModal from "../../Components/Const/CategoryModal";
 import Tabs from "../Navigators/Tabs";
 import CheckOutScreen from "../../Screens/CheckOutScreen";
+import ListingPage from "../ListingPage";
+import Messages from "../Messages";
 
 const Stack = createStackNavigator();
 
@@ -28,6 +30,8 @@ const Route = () => {
         <Stack.Screen name="ListDetails" component={CategoryScreen} />
         <Stack.Screen name="CategoryModal" component={CategoryModal} />
         <Stack.Screen name="CheckOut" component={CheckOutScreen} />
+        <Stack.Screen name="ListingPage" component={ListingPage} />
+        <Stack.Screen name="Messages" component={Messages} />
 
         <Stack.Screen
           name="register"
