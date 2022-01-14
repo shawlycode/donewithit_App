@@ -22,7 +22,7 @@ const Tabs = () => {
             <MaterialIcons
               name="dynamic-feed"
               size={38}
-              color={focused ? "#9ef01a" : "#e71d36"}
+              color={focused ? "#ff006e" : "#1b3a4b"}
             />
           ),
         }}
@@ -36,7 +36,7 @@ const Tabs = () => {
             <MaterialIcons
               name="add-box"
               size={38}
-              color={focused ? "#9ef01a" : "#e71d36"}
+              color={focused ? "#ff006e" : "#1b3a4b"}
             />
           ),
         }}
@@ -49,7 +49,7 @@ const Tabs = () => {
             <MaterialIcons
               name="switch-account"
               size={38}
-              color={focused ? "#9ef01a" : "#e71d36"}
+              color={focused ? "#ff006e" : "#1b3a4b"}
             />
           ),
         }}
