@@ -71,6 +71,25 @@ const CardDetailsScreen = ({ route, navigation }) => {
                 -
               </Text>
             </TouchableOpacity>
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "#fff",
+                width: 40,
+                height: 50,
+                borderRadius: 5,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 20,
+                  textAlign: "center",
+                }}
+              >
+                3
+              </Text>
+            </View>
             <TouchableOpacity
               style={{
                 marginVertical: 5,
@@ -101,8 +120,8 @@ const CardDetailsScreen = ({ route, navigation }) => {
             }}
             onPress={() => navigation.navigate("CheckOut")}
           >
-            <Text style={{ color: "yellow", fontWeight: "bold", fontSize: 24 }}>
-              Buy
+            <Text style={{ color: "yellow", fontWeight: "bold", fontSize: 20 }}>
+              Add to Card
             </Text>
           </TouchableOpacity>
         </View>
