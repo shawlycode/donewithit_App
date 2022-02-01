@@ -13,6 +13,9 @@ import Tabs from "../Navigators/Tabs";
 import CheckOutScreen from "../../Screens/CheckOutScreen";
 import ListingPage from "../ListingPage";
 import Messages from "../Messages";
+import Payment from "../Payment";
+import SearchScreen from "../SearchScreen";
+import SearchFilterScreen from "../SearchFilterScreen";
 
 const Stack = createStackNavigator();
 
@@ -24,7 +27,7 @@ const Route = () => {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="signin" component={SignInScreen} />
+        <Stack.Screen name="signIn" component={SignInScreen} />
         <Stack.Screen name="home" component={Tabs} />
         <Stack.Screen name="cardDetails" component={CardDetailsScreen} />
         <Stack.Screen name="ListDetails" component={CategoryScreen} />
@@ -32,6 +35,9 @@ const Route = () => {
         <Stack.Screen name="CheckOut" component={CheckOutScreen} />
         <Stack.Screen name="ListingPage" component={ListingPage} />
         <Stack.Screen name="Messages" component={Messages} />
+        <Stack.Screen name="payment" component={Payment} />
+        <Stack.Screen name="Search" component={SearchScreen} />
+        <Stack.Screen name="filteredData" component={SearchFilterScreen} />
 
         <Stack.Screen
           name="register"
