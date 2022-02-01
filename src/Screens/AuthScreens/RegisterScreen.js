@@ -61,13 +61,13 @@ const RegisterScreen = ({ navigation }) => {
               marginVertical: 10,
             }}
           >
-            By signing up you accept the{" "}
+            By signing up you accept the
             <Text
               style={{ color: "#FA510D", fontWeight: "bold", fontSize: 20 }}
             >
               Terms of Service
-            </Text>{" "}
-            and{" "}
+            </Text>
+            and
             <Text
               style={{ color: "#FA510D", fontWeight: "bold", fontSize: 20 }}
             >
@@ -97,7 +97,7 @@ const RegisterScreen = ({ navigation }) => {
           Already have an account?{" "}
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("signin");
+              navigation.navigate("signIn");
             }}
           >
             <Text
