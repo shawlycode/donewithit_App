@@ -43,8 +43,8 @@ const SignInScreen = ({ navigation }) => {
         <Text
           style={{ color: "#fe5d26", fontWeight: "bold", fontStyle: "italic" }}
         >
-          {" "}
-          DoneWithIt{" "}
+
+          DoneWithIt
         </Text>
         account
       </Text>
