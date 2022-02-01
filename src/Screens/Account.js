@@ -129,7 +129,7 @@ const Feeds = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <TouchableOpacity
-        onPress={() => navigation.navigate("signin")}
+        onPress={() => navigation.navigate("signIn")}
         style={{
           flexDirection: "row",
           justifyContent: "center",

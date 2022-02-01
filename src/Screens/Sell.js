@@ -26,12 +26,12 @@ const Sell = ({ navigation }) => {
           New Listing
         </Text>
       </View>
-      <TouchableOpacity style={styles.imgCon}>
-        <View>
-          <ImagePicker />
-        </View>
-      </TouchableOpacity>
-      <View style={{ marginTop: 30, marginLeft: 20, flex: 1 }}>
+
+      <View style={styles.imgCon}>
+        <ImagePicker />
+      </View>
+
+      <View style={{ marginTop: 30, marginLeft: 20, flex: 5 }}>
         <View style={styles.formCon}>
           <Ionicons name="brush-outline" size={30} color="black" />
           <TextInput placeholder="Title :" style={styles.placeholder} />
@@ -55,17 +55,19 @@ const Sell = ({ navigation }) => {
           <MaterialIcons name="description" size={30} color="black" />
           <TextInput placeholder="Description :" style={styles.placeholder} />
         </View>
-        <TouchableOpacity style={styles.postBtn}>
-          <Text style={styles.postText}>Post</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.CancelBtn}
-          onPress={() => {
-            navigation.goBack();
-          }}
-        >
-          <Text style={styles.postText}>Cancel</Text>
-        </TouchableOpacity>
+        <View style={{ flex: 2 }}>
+          <TouchableOpacity style={styles.postBtn}>
+            <Text style={styles.postText}>Post</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.CancelBtn}
+            onPress={() => {
+              navigation.goBack();
+            }}
+          >
+            <Text style={styles.postText}>Cancel</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -75,14 +77,18 @@ export default Sell;
 
 const styles = StyleSheet.create({
   imgCon: {
-    backgroundColor: "#e9ecef",
-    width: 100,
-    height: 100,
-    borderRadius: 10,
+    flex: 0.5,
+    flexDirection: "row",
+    backgroundColor: "#F3F8F9",
+    width: 60,
+    height: 60,
+    borderRadius: 5,
     marginLeft: 20,
     marginTop: 28,
-    justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
+
+
+
   },
   placeholder: { flex: 1, fontSize: 24, marginLeft: 10 },
   formCon: {
