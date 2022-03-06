@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,142 +6,97 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
+  ScrollView
 } from "react-native";
+import SearchComponent from "../Components/Const/SearchComponent";
+import { COLOURS, Items } from '../global/Database'
+import { Badge } from "react-native-elements";
+import { FontAwesome } from '@expo/vector-icons';
 
 const HomeScreen = ({ navigation }) => {
-  function Card() {
-    return (
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={cardData}
-        renderItem={({ item }) => (
-          <View
-            style={{
-              width: "90%",
-              marginHorizontal: 20,
-              marginBottom: 15,
-            }}
-          >
-            <TouchableOpacity
-              onPress={() => navigation.navigate("cardDetails", item)}
-            >
-              <Image source={item.img} style={styles.img} />
+  const [products, setProducts] = useState([]);
+  const [accessory, setAccessory] = useState([]);
 
-              <View
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  backgroundColor: "#f35b04",
-                  height: 70,
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 10,
-                  shadowOpacity: 4,
-                  elevation: 0.6,
-                }}
+  //get called on screen loads
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      getDataFromDB();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
+  //get data from DB
+
+  const getDataFromDB = () => {
+    let productList = [];
+    let accessoryList = [];
+    for (let index = 0; index < Items.length; index++) {
+      if (Items[index].category == "product") {
+        productList.push(Items[index]);
+      } else if (Items[index].category == "accessory") {
+        accessoryList.push(Items[index]);
+      }
+    }
+
+    setProducts(productList);
+    setAccessory(accessoryList);
+  };
+  function Card({ item, index }) {
+    return (
+      <View>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          numColumns={3}
+          data={Items}
+          renderItem={({ item, index }) => (
+            <View
+              style={{
+                width: 134.5,
+                justifyContent: "center",
+                borderWidth: 2,
+                borderColor: "#41D689",
+                margin: 2,
+                flex: 1
+              }}
+              keyExtractor={item => item.id}
+            >
+              <TouchableOpacity
+                key={index}
+                onPress={() =>
+                  navigation.navigate("cardDetails", { productID: item.id })
+                }
               >
-                <Text style={styles.text}>{item.name}</Text>
-                <Text style={styles.textPrice}>{item.price}</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        )}
-      />
+                <Image source={item.productImage} style={styles.img} />
+              </TouchableOpacity>
+            </View>
+          )
+          }
+        />
+      </View>
     );
   }
-  const [categoryList, setCategoryList] = useState([
-    {
-      id: "883228hi",
-      type: "Cars",
-      image: require("../../assets/troy.jpg"),
-      about: "this is the best so far in the market",
-      price: "$200",
-      review: "243 reviews",
-      ratings: "4.5 stars",
-    },
-    {
-      id: "883hi",
-      type: "Camera's",
-      image: require("../../assets/troy.jpg"),
-      about: "this is the best so far in the market",
-      price: "$200",
-      review: "243 reviews",
-      ratings: "4.5 stars",
-    },
-    {
-      id: "8838hi",
-      type: "Clothes",
-      image: require("../../assets/troy.jpg"),
-      about: "this is the best so far in the market",
-      price: "$200",
-      review: "243 reviews",
-      ratings: "4.5 stars",
-    },
-    {
-      id: "883228h",
-      type: "Toys",
-      image: require("../../assets/troy.jpg"),
-      about: "this is the best so far in the market",
-      price: "$200",
-      review: "243 reviews",
-      ratings: "4.5 stars",
-    },
-    {
-      id: "8832hi",
-      type: "furniture",
-      image: require("../../assets/jacket.jpg"),
-      about: "this is the best so far in the market",
-      price: "$200",
-      review: "243 reviews",
-      ratings: "4.5 stars",
-    },
-  ]);
-  const [cardData, setCardData] = useState([
-    {
-      id: "bd7acbea-c1b1-46c2-aed5-3abb",
-      img: require("../../assets/jacket.jpg"),
-      name: "Black Jacket",
-      about:
-        "This is one of the best you can find on this plat form .Is made of pure cotton. Is also water proof",
-      price: "$400",
-      ratings: "4 stars",
-    },
-    {
-      id: "bd7acbea-c1-c2-aed5-d53abb28ba",
-      img: require("../../assets/nike1.jpeg"),
-      name: "Nike",
-      about: "This is one of the best you can find on this plat form ",
-      price: "$299",
-    },
-    {
-      id: "bd7acbea-c1b1-46c2-aed5-3a53abb",
-      img: require("../../assets/jacket.jpg"),
-      name: "Black Jacket",
-      about:
-        "This is one of the best you can find on this plat form .Is made of pure cotton.",
-      price: "$120",
-    },
-  ]);
+
+  function renderHeader() {
+    return (
+      <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+        <View></View>
+        <TouchableOpacity style={{ paddingRight: 15, paddingBottom: 10 }} onPress={() => navigation.navigate('cart')}>
+          <View style={{ position: "absolute", left: 23, bottom: 30 }}>
+            <Badge value="3" status="error" />
+          </View>
+
+          <FontAwesome name="shopping-basket" size={26} color={COLOURS.lemonGreen} />
+        </TouchableOpacity>
+      </View>
+    )
+  }
 
   return (
-    // category list section
+
     <View style={styles.container}>
-      <FlatList
-        showsHorizontalScrollIndicator={false}
-        horizontal={true}
-        data={categoryList}
-        renderItem={({ item }) => (
-          <View
-            style={{ marginTop: 50, marginBottom: 30, marginHorizontal: 8 }}
-          >
-            <TouchableOpacity
-              style={styles.categoryCon}
-              onPress={() => navigation.navigate("CategoryModal")}
-            >
-              <Text style={styles.categoryText}>{item.type}</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      />
+      {renderHeader()}
+      {/* <SearchComponent /> */}
       <Card />
     </View>
   );
@@ -151,38 +106,16 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#EDE0FC",
+
+    flex: 1,
+    paddingTop: 50,
+    backgroundColor: "#0C004D",
   },
   img: {
     width: "100%",
-    height: 280,
+    height: 150,
     resizeMode: "cover",
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+
   },
-  text: {
-    paddingTop: 5,
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#fff",
-  },
-  textPrice: {
-    fontSize: 25,
-    fontWeight: "bold",
-    color: "yellow",
-    paddingBottom: 10,
-  },
-  categoryCon: {
-    justifyContent: "center",
-    alignItems: "center",
-    width: 85,
-    height: 40,
-    backgroundColor: "tomato",
-    borderRadius: 5,
-  },
-  categoryText: {
-    fontSize: 18,
-    color: "yellow",
-    fontWeight: "bold",
-  },
+
 });

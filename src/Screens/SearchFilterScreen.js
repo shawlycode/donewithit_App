@@ -19,8 +19,8 @@ const SearchFilterScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <Image
-        source={require("../../assets/nike1.jpeg")}
-        style={{ width: "100%", height: 500 }}
+        source={require("../../assets/wengan.jpg")}
+        style={{ width: "100%", height: 500, resizeMode: "contain" }}
       />
     </View>
   );

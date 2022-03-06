@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import HomeScreen from "../HomeScreen";
 import { MaterialIcons, AntDesign } from "@expo/vector-icons";
 
@@ -26,11 +26,7 @@ const Tabs = () => {
         component={HomeScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <MaterialIcons
-              name="dynamic-feed"
-              size={38}
-              color={focused ? "#ff006e" : "#1b3a4b"}
-            />
+            <Image source={require('../../../assets/logo.png')} style={{ width: 40, height: 40 }} />
           ),
         }}
       />

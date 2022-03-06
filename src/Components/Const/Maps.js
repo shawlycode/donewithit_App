@@ -1,62 +1,44 @@
 import * as React from "react";
-import MapView from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default function Maps() {
-  return (
-    <View style={styles.container}>
-      <MapView style={styles.map} />
-      <View style={styles.mapZoomBtn}>
-        <TouchableOpacity
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "tomato",
-            borderTopRightRadius: 10,
-            borderTopLeftRadius: 10,
-          }}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              width: 35,
-              height: 35,
-              fontSize: 30,
-              fontWeight: "bold",
-              color: "yellow",
-            }}
-          >
-            -
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "tomato",
+const Maps = ({ route, navigation }) => {
+  // const [data, setData] = React.useState(null);
+  // const [streetName, SetStreetName] = React.useState("");
+  // const [fromLocation, SetFromLocation] = React.useState(null);
+  // const [toLocation, SetToLocation] = React.useState(null);
+  // const [region, SetToRegion] = React.useState(null);
 
-            borderBottomRightRadius: 10,
-            borderBottomLeftRadius: 10,
+  // React.useEffect(() => {
+  //   let { data, currentLoaction } = route.params;
+  // });
+
+  function renderMap() {
+    return (
+      <View>
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: 5.614818,
+            longitude: -0.205874,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
           }}
         >
-          <Text
-            style={{
-              textAlign: "center",
-              width: 35,
-              height: 35,
-              fontSize: 30,
-              fontWeight: "bold",
-              color: "yellow",
+          <Marker
+            coordinate={{
+              latitude: 5.614818,
+              longitude: -0.205874,
             }}
-          >
-            +
-          </Text>
-        </TouchableOpacity>
+          ></Marker>
+        
+        </MapView>
       </View>
-    </View>
-  );
-}
+    );
+  }
+  return <View style={styles.container}>{renderMap()}</View>;
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -101,3 +83,4 @@ const styles = StyleSheet.create({
   //   borderTopLeftRadius: 10,
   // },
 });
+export default Maps;
