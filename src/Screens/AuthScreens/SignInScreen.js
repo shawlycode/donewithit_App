@@ -5,13 +5,18 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  StatusBar
 } from "react-native";
 
 import { AntDesign, Entypo, FontAwesome } from "@expo/vector-icons";
+import { COLOURS } from "../../global/Database";
+
 
 const SignInScreen = ({ navigation }) => {
   return (
+
     <View style={styles.container}>
+      <StatusBar />
       <View style={styles.header}>
         <AntDesign
           name="arrowleft"
@@ -37,6 +42,7 @@ const SignInScreen = ({ navigation }) => {
           textAlign: "center",
           paddingHorizontal: 30,
           marginTop: 20,
+          color: COLOURS.lemonGreen
         }}
       >
         Please enter the email and password registered with your
@@ -87,7 +93,7 @@ const SignInScreen = ({ navigation }) => {
 
       <View style={{ flex: 3, alignItems: "center" }}>
         <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <Text style={{ fontWeight: "bold", fontSize: 20 }}>OR</Text>
+          <Text style={{ fontWeight: "bold", fontSize: 20, color: COLOURS.lemonGreen }}>OR</Text>
         </View>
         <TouchableOpacity style={styles.socialBtn}>
           <View
@@ -126,7 +132,7 @@ const SignInScreen = ({ navigation }) => {
       </View>
       <View style={{ flex: 2 }}>
         <View>
-          <Text style={{ fontSize: 20, fontWeight: "bold", marginLeft: 25 }}>
+          <Text style={{ fontSize: 20, fontWeight: "bold", marginLeft: 25, color: COLOURS.lemonGreen, }}>
             New on DoneWithIt?
           </Text>
         </View>
@@ -149,12 +155,12 @@ export default SignInScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#EDE0FC",
+    backgroundColor: COLOURS.backgroundDark,
   },
   header: {
     flex: 1,
     flexDirection: "row",
-    backgroundColor: "#ff8427",
+    backgroundColor: COLOURS.backgroundDark,
     alignItems: "center",
     paddingVertical: 10,
   },
@@ -171,18 +177,18 @@ const styles = StyleSheet.create({
     marginTop: 30,
     fontSize: 28,
     fontWeight: "bold",
-    color: "#FA510D",
+    color: COLOURS.lemonGreen,
   },
   inputText: {
     fontSize: 20,
     fontWeight: "bold",
     borderWidth: 1,
-    borderColor: "#FA510D",
+    borderColor: COLOURS.lemonGreen,
     width: "100%",
     height: 50,
     borderRadius: 8,
     paddingHorizontal: 20,
-    backgroundColor: "#FFEEE7",
+    backgroundColor: COLOURS.lemonGreen,
     marginTop: 30,
   },
   inputPasswordText: {
@@ -196,8 +202,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#FA510D",
-    backgroundColor: "#FFEEE7",
+    borderColor: COLOURS.lemonGreen,
+    backgroundColor: COLOURS.lemonGreen,
     width: "100%",
     height: 50,
     borderRadius: 8,
@@ -209,7 +215,7 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
     marginBottom: 20,
     textDecorationLine: "underline",
-    color: "#F59655",
+    color: COLOURS.lemonGreen,
   },
   socialBtn: {
     justifyContent: "center",
@@ -241,12 +247,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     padding: 10,
     borderWidth: 2,
-    borderColor: "#FA510D",
+    borderColor: COLOURS.lemonGreen,
     marginTop: 10,
     marginBottom: 40,
     marginHorizontal: 30,
     borderRadius: 8,
     width: 200,
     height: 50,
+    color: COLOURS.lemonGreen
   },
 });
