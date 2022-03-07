@@ -151,18 +151,20 @@ const Cart = ({ navigation }) => {
                                     color: COLOURS.lemonGreen
                                 }}
                             >
-                                ${data.productPrice}
+                                &#x20B5;{data.productPrice}
                             </Text> */}
                             <Text
                                 style={{
                                     color: COLOURS.lemonGreen,
-                                    fontSize: 16,
+                                    fontSize: 20,
                                     fontWeight: "bold",
                                 }}
                             >
-                                ${data.productPrice}
-                                <Text style={{ fontSize: 14, padding: 30 }}>{data.description}</Text>
+                                &#x20B5; {data.productPrice}.00
+
+
                             </Text>
+
                         </View>
                     </View>
                     <View
@@ -509,7 +511,7 @@ const Cart = ({ navigation }) => {
                                     opacity: 0.8,
                                 }}
                             >
-                                ${total}.00
+                                &#x20B5;{total}.00
                             </Text>
                         </View>
                         <View
@@ -539,7 +541,7 @@ const Cart = ({ navigation }) => {
                                     opacity: 0.8,
                                 }}
                             >
-                                ${total / 20}
+                                &#x20B5;{total / 20}.00
                             </Text>
                         </View>
                         <View
@@ -567,7 +569,7 @@ const Cart = ({ navigation }) => {
                                     color: COLOURS.lemonGreen,
                                 }}
                             >
-                                ${total + total / 20}
+                                &#x20B5;{total + total / 20}.00
                             </Text>
                         </View>
                     </View>
@@ -604,7 +606,7 @@ const Cart = ({ navigation }) => {
                             textTransform: "uppercase",
                         }}
                     >
-                        CHECKOUT (${total + total / 20} )
+                        CHECKOUT (&#x20B5;{total + total / 20} ).00
                     </Text>
                 </TouchableOpacity>
             </View>

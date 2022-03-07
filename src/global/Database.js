@@ -7,7 +7,7 @@ export const COLOURS = {
   backgroundLight: "#F0F0F3",
   backgroundMedium: "#B9B9B9",
   backgroundDark: "#0C004D",
-  lemonGreen: "#00FF7C"
+  lemonGreen: "#C1E7D3"
 };
 
 export const Items = [

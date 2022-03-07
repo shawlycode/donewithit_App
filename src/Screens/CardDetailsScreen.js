@@ -61,11 +61,14 @@ const CardDetailsScreen = ({ route, navigation }) => {
       try {
         await AsyncStorage.setItem('cartItems', JSON.stringify(array));
         showMessage({
-          message: "Item Added To Card ",
-          fontSize: 30,
-          type: "success",
-          animated: "true",
-          animationDuration: 3000,
+          message: "Item Added Successfully to cart",
+          fontSize: 40,
+
+          // animated: "true",
+          backgroundColor: COLOURS.backgroundDark,
+          animationDuration: 500,
+
+
 
 
         });
@@ -79,7 +82,7 @@ const CardDetailsScreen = ({ route, navigation }) => {
       try {
         await AsyncStorage.setItem('cartItems', JSON.stringify(array));
         showMessage.show(
-          'Item Added Successfully to cart',
+          '',
           showMessage.SHORT,
         );
         navigation.navigate('Home');
@@ -254,7 +257,7 @@ const CardDetailsScreen = ({ route, navigation }) => {
           </View>
           <Text
             style={{
-              fontSize: 12,
+              fontSize: 16,
               color: COLOURS.lemonGreen,
               fontWeight: '400',
               letterSpacing: 1,
@@ -263,6 +266,7 @@ const CardDetailsScreen = ({ route, navigation }) => {
               maxWidth: '85%',
               maxHeight: 44,
               marginBottom: 18,
+              fontWeight: "bold"
             }}>
             {product.description}
           </Text>
@@ -300,7 +304,7 @@ const CardDetailsScreen = ({ route, navigation }) => {
                   }}
                 />
               </View>
-              <Text style={{ color: COLOURS.lemonGreen }}>{Items.location}{'\n'}17-001, Batume</Text>
+              <Text style={{ color: COLOURS.lemonGreen, fontSize: 18 }}>{product.location}{'\n'}17-001, Batume</Text>
             </View>
             <Entypo
               name="chevron-right"
@@ -322,10 +326,10 @@ const CardDetailsScreen = ({ route, navigation }) => {
                 color: COLOURS.lemonGreen,
                 marginBottom: 4,
               }}>
-              &#8377; {product.productPrice}.00
+              &#x20B5;{product.productPrice}.00
             </Text>
             <Text style={{ color: COLOURS.lemonGreen }}>
-              Tax Rate 2%~ ${product.productPrice / 20} ($
+              Tax Rate 2%~ &#x20B5;{product.productPrice / 20} ($
               {product.productPrice + product.productPrice / 20})
             </Text>
           </View>
