@@ -4,8 +4,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLOURS, Items } from "../global/Database";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import FlashMessage, { showMessage } from "react-native-flash-message";
+import Counter from "./counter/Counter";
 
-const Cart = ({ navigation }) => {
+const Cart = ({ navigation, route }) => {
     const [product, setProduct] = useState();
     const [total, setTotal] = useState(null);
 
@@ -91,8 +92,7 @@ const Cart = ({ navigation }) => {
                     marginVertical: 6,
                     flexDirection: "row",
                     alignItems: "center",
-                }}
-            >
+                }}>
                 <View
                     style={{
                         width: "30%",
@@ -103,8 +103,7 @@ const Cart = ({ navigation }) => {
                         backgroundColor: COLOURS.lemonGreen,
                         borderRadius: 10,
                         marginRight: 22,
-                    }}
-                >
+                    }}>
                     <Image
                         source={data.productImage}
                         style={{
@@ -121,7 +120,7 @@ const Cart = ({ navigation }) => {
                         justifyContent: "space-around",
                     }}
                 >
-                    <View >
+                    <View>
                         <Text
                             style={{
                                 fontSize: 18,
@@ -139,20 +138,9 @@ const Cart = ({ navigation }) => {
                                 flexDirection: "row",
                                 alignItems: "center",
                                 opacity: 0.6,
-
                             }}
                         >
-                            {/* <Text
-                                style={{
-                                    fontSize: 14,
-                                    fontWeight: "400",
-                                    maxWidth: "85%",
-                                    marginRight: 4,
-                                    color: COLOURS.lemonGreen
-                                }}
-                            >
-                                &#x20B5;{data.productPrice}
-                            </Text> */}
+
                             <Text
                                 style={{
                                     color: COLOURS.lemonGreen,
@@ -161,10 +149,7 @@ const Cart = ({ navigation }) => {
                                 }}
                             >
                                 &#x20B5; {data.productPrice}.00
-
-
                             </Text>
-
                         </View>
                     </View>
                     <View
@@ -172,75 +157,28 @@ const Cart = ({ navigation }) => {
                             flexDirection: "row",
                             justifyContent: "space-between",
                             alignItems: "center",
-                        }}
-                    >
-                        <View
-                            style={{
-                                flexDirection: "row",
-                                alignItems: "center",
-                            }}
-                        >
-                            <View
-                                style={{
-                                    borderRadius: 100,
-                                    marginRight: 20,
-                                    padding: 4,
-                                    borderWidth: 2,
-                                    borderColor: COLOURS.lemonGreen,
-                                    opacity: 0.8,
-                                }}
-                            >
-                                <MaterialCommunityIcons
-                                    name="minus"
-                                    style={{
-                                        fontSize: 20,
-                                        color: COLOURS.lemonGreen,
+                        }}>
+                        {/* increase cart qty btn */}
+                        <Counter />
+                        {/* increase cart qty btn end */}
 
-                                    }}
-                                />
-                            </View>
-                            <Text
-                                style={{
-                                    color: COLOURS.lemonGreen,
-                                    fontWeight: "bold",
-                                    fontSize: 18,
-                                }}
-                            >
-                                1
-                            </Text>
-                            <View
-                                style={{
-                                    borderRadius: 100,
-                                    marginLeft: 20,
-                                    padding: 4,
-                                    borderWidth: 2,
-                                    borderColor: COLOURS.lemonGreen,
-                                    opacity: 0.8,
-                                }}
-                            >
+                        {/* delete cart section */}
+                        <View>
+                            <TouchableOpacity onPress={() => removeItemFromCart(data.id)}>
                                 <MaterialCommunityIcons
-                                    name="plus"
+                                    name="delete-outline"
                                     style={{
-                                        fontSize: 20,
-                                        color: COLOURS.lemonGreen,
+                                        fontSize: 30,
+                                        color: COLOURS.blue,
+                                        backgroundColor: "pink",
+                                        padding: 5,
+                                        width: 40,
+                                        height: 40,
                                     }}
                                 />
-                            </View>
+                            </TouchableOpacity>
                         </View>
-                        <TouchableOpacity onPress={() => removeItemFromCart(data.id)}>
-                            <MaterialCommunityIcons
-                                name="delete-outline"
-                                style={{
-                                    fontSize: 30,
-                                    color: COLOURS.blue,
-                                    backgroundColor: "pink",
-                                    padding: 5,
-                                    width: 40,
-                                    height: 40,
-
-                                }}
-                            />
-                        </TouchableOpacity>
+                        {/* delete cart end */}
                     </View>
                 </View>
             </TouchableOpacity>
@@ -587,7 +525,7 @@ const Cart = ({ navigation }) => {
                 }}
             >
                 <TouchableOpacity
-                    onPress={() => (total != 0 ? checkOut() : null)}
+                    onPress={() => (total != 0 ? checkOut() : null, navigation.navigate('payment'))}
                     style={{
                         width: "86%",
                         height: "90%",
