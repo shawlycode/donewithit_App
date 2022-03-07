@@ -15,6 +15,7 @@ import Messages from "../Messages";
 import Cart from "../Cart";
 import SearchScreen from "../SearchScreen";
 import SearchFilterScreen from "../SearchFilterScreen";
+import Payment from '../Payment'
 
 
 const Stack = createStackNavigator();
@@ -37,6 +38,7 @@ const Route = () => {
         <Stack.Screen name="cart" component={Cart} />
         <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name="filteredData" component={SearchFilterScreen} />
+        <Stack.Screen name="payment" component={Payment} />
 
         <Stack.Screen
           name="register"
