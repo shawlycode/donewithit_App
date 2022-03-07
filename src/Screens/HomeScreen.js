@@ -42,7 +42,7 @@ const HomeScreen = ({ navigation }) => {
     setProducts(productList);
     setAccessory(accessoryList);
   };
-  function Card({ item, index }) {
+  function Card() {
     return (
       <View>
         <FlatList
@@ -59,10 +59,10 @@ const HomeScreen = ({ navigation }) => {
                 margin: 2,
                 flex: 1
               }}
-              keyExtractor={item => item.id}
+              key={Math.random().toString()}
             >
               <TouchableOpacity
-                key={index}
+                key={`$(item.id)`}
                 onPress={() =>
                   navigation.navigate("cardDetails", { productID: item.id })
                 }

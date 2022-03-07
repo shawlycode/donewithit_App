@@ -346,7 +346,7 @@ const CardDetailsScreen = ({ route, navigation }) => {
           alignItems: 'center',
         }}>
         <TouchableOpacity
-          onPress={() => (product.isAvailable ? addToCart(product.id) : null)}
+          onPress={() => (product.isAvailable ? addToCart(product.id) : null, navigation.navigate('home'))}
           style={{
             width: '86%',
             height: '90%',

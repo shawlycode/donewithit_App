@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { COLOURS, Items } from '../global/Database';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+
 const MyCart = ({ navigation }) => {
   const [product, setProduct] = useState();
   const [total, setTotal] = useState(null);
@@ -79,7 +80,7 @@ const MyCart = ({ navigation }) => {
       return error;
     }
 
-    ToastAndroid.show('Items will be Deliverd SOON!', ToastAndroid.SHORT);
+    showMessage.show('Items will be Deliverd SOON!', showMessage.SHORT);
 
     navigation.navigate('Home');
   };
