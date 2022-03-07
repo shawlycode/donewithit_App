@@ -7,7 +7,7 @@ const App = () => {
   return (
     <View style={{ flex: 1 }}>
       <Route />
-      <FlashMessage position="relative" style={styles.flash} />
+      <FlashMessage position="top" style={{ width: "100%", height: 100, alignItems: "center" }} />
     </View>
   );
 };
