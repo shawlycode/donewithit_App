@@ -74,8 +74,6 @@ const Cart = ({ navigation, route }) => {
             return error;
         }
 
-        showMessage.show("Items will be Deliverd SOON!", showMessage.SHORT);
-
         navigation.navigate("Home");
     };
 
@@ -337,7 +335,7 @@ const Cart = ({ navigation, route }) => {
                                 marginBottom: 20,
                             }}
                         >
-                            Payment Method
+                            Select Payment Method
                         </Text>
                         <View
                             style={{

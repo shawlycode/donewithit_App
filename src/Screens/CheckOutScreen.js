@@ -80,8 +80,6 @@ const MyCart = ({ navigation }) => {
       return error;
     }
 
-    showMessage.show('Items will be Deliverd SOON!', showMessage.SHORT);
-
     navigation.navigate('Home');
   };
 

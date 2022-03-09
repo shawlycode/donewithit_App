@@ -17,6 +17,7 @@ import {
 
 import ImagePicker from "../Components/Const/ImagePicker";
 import { showMessage, hideMessage } from "react-native-flash-message";
+import { COLOURS } from "../global/Database";
 
 export default function Sell({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -146,7 +147,7 @@ export default function Sell({ navigation }) {
     },
   ]);
   return (
-    <SafeAreaView style={{ backgroundColor: "grey", flex: 1 }}>
+    <SafeAreaView style={{ backgroundColor: COLOURS.backgroundDark, flex: 1 }}>
       <Modal
         animationType="fade"
         transparent={true}
@@ -204,6 +205,7 @@ export default function Sell({ navigation }) {
             fontWeight: "bold",
             marginLeft: 20,
             marginTop: 20,
+            color: COLOURS.lemonGreen
           }}
         >
           New Listing
@@ -216,11 +218,11 @@ export default function Sell({ navigation }) {
 
       <View style={{ marginTop: 30, marginLeft: 20, flex: 5 }}>
         <View style={styles.formCon}>
-          <Ionicons name="brush-outline" size={30} color="black" />
+          <Ionicons name="brush-outline" size={30} color="tomato" />
           <TextInput placeholder="Title :" style={styles.placeholder} />
         </View>
         <View style={styles.formCon}>
-          <FontAwesome name="dollar" size={30} color="black" />
+          <FontAwesome name="dollar" size={30} color="tomato" />
           <TextInput
             placeholder="Price :"
             style={styles.placeholder}
@@ -232,13 +234,13 @@ export default function Sell({ navigation }) {
             style={styles.formCon}
             onPress={() => setModalVisible(true)}
           >
-            <Ionicons name="options" size={30} color="black" />
+            <Ionicons name="options" size={30} color="tomato" />
           </TouchableOpacity>
           <TextInput placeholder="Category :" style={styles.placeholder} />
         </View>
 
         <View style={styles.formCon}>
-          <MaterialIcons name="description" size={30} color="black" />
+          <MaterialIcons name="description" size={30} color="tomato" />
           <TextInput placeholder="Description :" style={styles.placeholder} />
         </View>
         <View style={{ flex: 2 }}>
@@ -278,7 +280,7 @@ const styles = StyleSheet.create({
   imgCon: {
     flex: 0.5,
     flexDirection: "row",
-    backgroundColor: "#F3F8F9",
+    backgroundColor: COLOURS.lemonGreen,
     width: 60,
     height: 60,
     borderRadius: 5,
@@ -289,7 +291,7 @@ const styles = StyleSheet.create({
   placeholder: { flex: 1, fontSize: 24, marginLeft: 10 },
   formCon: {
     flexDirection: "row",
-    backgroundColor: "#e9ecee",
+    backgroundColor: COLOURS.lemonGreen,
     height: 50,
     width: "90%",
     borderRadius: 10,
@@ -301,7 +303,7 @@ const styles = StyleSheet.create({
     marginTop: 25,
     position: "absolute",
     top: 10,
-    backgroundColor: "#EDE0FC",
+    backgroundColor: COLOURS.backgroundDark,
     borderRadius: 15,
     padding: 10,
     alignItems: "center",
@@ -319,7 +321,7 @@ const styles = StyleSheet.create({
   modalCon: {
     backgroundColor: "green",
     borderWidth: 0.6,
-    borderColor: "tomato",
+    borderColor: COLOURS.lemonGreen,
     margin: 4,
     width: 120,
     height: 120,
@@ -350,7 +352,7 @@ const styles = StyleSheet.create({
     padding: 15,
     fontSize: 24,
     fontWeight: "bold",
-    color: "#fff",
+    color: COLOURS.lemonGreen,
   },
   CancelBtn: {
     marginTop: 30,
@@ -369,7 +371,7 @@ const styles = StyleSheet.create({
   },
   categoryText: {
     fontSize: 18,
-    color: "yellow",
+    color: COLOURS.lemonGreen,
     fontWeight: "bold",
   },
 });

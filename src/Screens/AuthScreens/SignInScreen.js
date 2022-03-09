@@ -71,7 +71,7 @@ const SignInScreen = ({ navigation }) => {
         </View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("home");
+            navigation.navigate("homeScreen");
           }}
           style={{
             justifyContent: "center",

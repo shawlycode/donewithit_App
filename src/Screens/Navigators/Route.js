@@ -15,7 +15,7 @@ import Messages from "../Messages";
 import Cart from "../Cart";
 import SearchScreen from "../SearchScreen";
 import SearchFilterScreen from "../SearchFilterScreen";
-import Payment from '../Payment'
+import Payment from '../../Payment/Payment'
 
 
 const Stack = createStackNavigator();
@@ -29,7 +29,7 @@ const Route = () => {
         }}
       >
         <Stack.Screen name="signIn" component={SignInScreen} />
-        <Stack.Screen name="home" component={Tabs} />
+        <Stack.Screen name="homeScreen" component={Tabs} />
         <Stack.Screen name="cardDetails" component={CardDetailsScreen} />
         <Stack.Screen name="ListDetails" component={CategoryScreen} />
         <Stack.Screen name="CheckOut" component={CheckOutScreen} />
@@ -39,6 +39,7 @@ const Route = () => {
         <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name="filteredData" component={SearchFilterScreen} />
         <Stack.Screen name="payment" component={Payment} />
+        {/* <Stack.Screen name="home" component={HomeScreen} /> */}
 
         <Stack.Screen
           name="register"

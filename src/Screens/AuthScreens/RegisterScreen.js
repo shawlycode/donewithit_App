@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import { COLOURS } from "../../global/Database";
 
 const RegisterScreen = ({ navigation }) => {
   return (
@@ -14,6 +15,7 @@ const RegisterScreen = ({ navigation }) => {
               marginHorizontal: 20,
               paddingTop: 10,
               fontWeight: "500",
+              color: COLOURS.lemonGreen
             }}
           >
             Please sign up with your details and start earning with DoneWithIt
@@ -59,6 +61,7 @@ const RegisterScreen = ({ navigation }) => {
               textAlign: "center",
               marginHorizontal: 20,
               marginVertical: 10,
+              color: COLOURS.lemonGreen
             }}
           >
             By signing up you accept the
@@ -88,20 +91,20 @@ const RegisterScreen = ({ navigation }) => {
           borderRadius: 8,
         }}
       >
-        <Text style={{ fontSize: 24, color: "#FAF4F1", fontWeight: "bold" }}>
+        <Text style={{ fontSize: 24, color: COLOURS.lemonGreen, fontWeight: "bold" }}>
           Sing-Up
         </Text>
       </View>
       <View style={{ flex: 2, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ fontSize: 18 }}>
-          Already have an account?{" "}
+        <Text style={{ fontSize: 18, color: COLOURS.lemonGreen, }}>
+          Already have an account?
           <TouchableOpacity
             onPress={() => {
               navigation.navigate("signIn");
             }}
           >
             <Text
-              style={{ color: "#FA510D", fontWeight: "bold", fontSize: 20 }}
+              style={{ color: COLOURS.lemonGreen, fontWeight: "bold", fontSize: 20 }}
             >
               Login
             </Text>
@@ -117,7 +120,7 @@ export default RegisterScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#EDE0FC",
+    backgroundColor: COLOURS.backgroundDark,
   },
   header: {
     flex: 2,
@@ -130,7 +133,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     justifyContent: "flex-start",
     alignItems: "flex-start",
-    color: "#FA510D",
+    color: COLOURS.lemonGreen,
   },
   form: {
     justifyContent: "center",
@@ -141,12 +144,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     borderWidth: 1,
-    borderColor: "#FA510D",
+    borderColor: COLOURS.lemonGreen,
     width: "100%",
     height: 50,
     borderRadius: 8,
     paddingHorizontal: 20,
-    backgroundColor: "#FFEEE7",
+    backgroundColor: COLOURS.lemonGreen,
     marginVertical: 10,
   },
 });
