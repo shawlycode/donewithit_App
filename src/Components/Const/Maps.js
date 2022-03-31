@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
     flex: 1,
 
     width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+    // height: Dimensions.get("window").height,
+    height: 180,
   },
   mapZoomBtn: {
     justifyContent: "center",
