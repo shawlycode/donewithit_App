@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@chargebee/react-native-chargebee": "^1.2.0",
-    "@react-native-async-storage/async-storage": "~1.15.0",
+    "@react-native-async-storage/async-storage": "^1.17.2",
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/material-bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
