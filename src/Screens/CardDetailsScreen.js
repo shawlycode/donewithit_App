@@ -220,21 +220,16 @@ const CardDetailsScreen = ({ route, navigation }) => {
               marginVertical: 14,
             }}
           >
-            <Entypo
-              name="shopping-cart"
-              style={{
-                fontSize: 18,
-                color: COLOURS.lemonGreen,
-                marginRight: 6,
-              }}
-            />
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 24,
+                fontWeight: "500",
+                maxWidth: "85%",
                 color: COLOURS.lemonGreen,
+                marginBottom: 4,
               }}
             >
-              Shopping
+              &#x20B5;{product.productPrice}.00
             </Text>
           </View>
           <View
@@ -270,7 +265,7 @@ const CardDetailsScreen = ({ route, navigation }) => {
           </View>
           <Text
             style={{
-              fontSize: 16,
+              fontSize: 18,
               color: COLOURS.lemonGreen,
               fontWeight: "400",
               letterSpacing: 1,
@@ -323,7 +318,6 @@ const CardDetailsScreen = ({ route, navigation }) => {
               </View>
               <Text style={{ color: COLOURS.lemonGreen, fontSize: 18 }}>
                 {product.location}
-                {"\n"}
               </Text>
             </View>
             <Entypo
@@ -334,16 +328,10 @@ const CardDetailsScreen = ({ route, navigation }) => {
               }}
             />
           </View>
-          <View
-            style={{
-              width: "100%",
-              height: 190,
-              backgroundColor: "#fff",
-            }}
-          >
+          <View>
             <Maps />
           </View>
-          <View
+          {/* <View
             style={{
               paddingHorizontal: 16,
             }}
@@ -362,7 +350,7 @@ const CardDetailsScreen = ({ route, navigation }) => {
             {/* <Text style={{ color: COLOURS.lemonGreen }}>
               &#x20B5;{product.productPrice}
             </Text> */}
-          </View>
+          {/* </View> } */}
         </View>
       </ScrollView>
 
@@ -372,18 +360,42 @@ const CardDetailsScreen = ({ route, navigation }) => {
           bottom: 10,
           height: "8%",
           width: "100%",
-          justifyContent: "center",
+          justifyContent: "space-evenly",
           alignItems: "center",
+          flexDirection: "row",
         }}
       >
+        <TouchableOpacity
+          style={{
+            width: "40%",
+            height: "70%",
+            backgroundColor: COLOURS.lemonGreen,
+            borderRadius: 20,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          onPress={() => navigation.navigate("Messages")}
+        >
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: "bold",
+              letterSpacing: 1,
+              color: COLOURS.blue,
+              textTransform: "uppercase",
+            }}
+          >
+            make Offer
+          </Text>
+        </TouchableOpacity>
         <TouchableOpacity
           onPress={() => (
             product.isAvailable ? addToCart(product.id) : null,
             navigation.navigate("homeScreen")
           )}
           style={{
-            width: "86%",
-            height: "90%",
+            width: "40%",
+            height: "70%",
             backgroundColor: COLOURS.lemonGreen,
             borderRadius: 20,
             justifyContent: "center",
