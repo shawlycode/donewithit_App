@@ -11,25 +11,28 @@ export class Counter extends Component {
     };
     priceChange = () => {
         this.setState({
-            total_price: this.state.total_price * this.state.value
+            total_price: this.state.total_price * this.state.numberOfItems
         })
     }
     incrementValue = () => {
 
         this.setState({
-            value: this.state.value + 1,
+            value: this.props.setNumberOfItems(this.props.numberOfItems + 1),
         });
     };
     decrementValue = () => {
-        if (this.state.value < 0) {
-            this.setState({
-                value: 0
-            });
-        } else {
-            this.setState({
-                value: this.state.value - 1
-            });
-        }
+        this.setState({
+            value: this.props.setNumberOfItems(this.props.numberOfItems - 1),
+        });
+        // if (this.state.value < 0) {
+        //     this.setState({
+        //         value: 0
+        //     });
+        // } else {
+        //     this.setState({
+        //         value: this.props.setNumberOfItems(this.props.numberOfItems - 1)
+        //     });
+        // }
 
     };
     render() {
@@ -48,7 +51,7 @@ export class Counter extends Component {
 
                 </View>
                 <View>
-                    <Text style={{ fontSize: 20, padding: 10, color: COLOURS.lemonGreen }}>{this.state.value}</Text>
+                    <Text style={{ fontSize: 20, padding: 10, color: COLOURS.lemonGreen }}>{this.props.numberOfItems}</Text>
                 </View>
                 <View>
                     <TouchableOpacity onPress={this.incrementValue}>

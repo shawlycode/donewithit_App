@@ -1,27 +1,28 @@
-import React from 'react';
-import { Paystack, showPayButton } from 'react-native-paystack-webview';
-import { View } from 'react-native';
+import React from "react";
+import { Paystack } from "react-native-paystack-webview";
+import { View, Text } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 
-export default function Payment() {
-    return (
-        <View>
-            <Paystack
-                showPayButton={true}
-                buttonText="PAY NOW"
-                paystackKey="pk_test_8d50cf22938cbf5d325f052aa4f06bf7c49a5155"
-                amount={'400'}
-                billingEmail="kliqxpress@gmail.com"
-                activityIndicatorColor="green"
-                onCancel={(e) => {
-                    // handle response here
-                }}
-                onSuccess={(res) => {
-                    // handle response here
-                }}
-                autoStart={false}
-                Currency='GHS'
-                channels={JSON.stringify(["card", "ussd", 'mobile_money', 'qr'])}
-            />
-        </View>
-    );
-}
+const Payment = ({ navigation }) => {
+  return (
+    <View style={{ flex: 1 }}>
+      <Paystack
+        paystackKey="pk_test_d39a127e8ed71cad242e85c10aa3b5234aa69e56"
+        amount={"200"}
+        currency="GHS"
+        channel="card"
+        billingEmail="paystackwebview@something.com"
+        activityIndicatorColor="tomato"
+        onCancel={(e) => {
+          // handle response here
+        }}
+        onSuccess={(res) => {
+          // handle response here
+          // navigation.navigate()
+        }}
+        autoStart={true}
+      />
+    </View>
+  );
+};
+export default Payment;

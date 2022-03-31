@@ -6,12 +6,12 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import SearchComponent from "../Components/Const/SearchComponent";
-import { COLOURS, Items } from '../global/Database'
+import { COLOURS, Items } from "../global/Database";
 import { Badge } from "react-native-elements";
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome } from "@expo/vector-icons";
 
 const HomeScreen = ({ navigation }) => {
   const [products, setProducts] = useState([]);
@@ -56,8 +56,9 @@ const HomeScreen = ({ navigation }) => {
                 justifyContent: "center",
                 borderWidth: 2,
                 borderColor: "#41D689",
+                borderRadius: 2,
                 margin: 2,
-                flex: 1
+                flex: 1,
               }}
               key={Math.random().toString()}
             >
@@ -70,8 +71,7 @@ const HomeScreen = ({ navigation }) => {
                 <Image source={item.productImage} style={styles.img} />
               </TouchableOpacity>
             </View>
-          )
-          }
+          )}
         />
       </View>
     );
@@ -79,21 +79,33 @@ const HomeScreen = ({ navigation }) => {
 
   function renderHeader() {
     return (
-      <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <View></View>
-        <TouchableOpacity style={{ paddingRight: 15, paddingBottom: 10 }} onPress={() => navigation.navigate('cart')}>
+        <TouchableOpacity
+          style={{ paddingRight: 15, paddingBottom: 10 }}
+          onPress={() => navigation.navigate("cart")}
+        >
           <View style={{ position: "absolute", left: 23, bottom: 30 }}>
             <Badge value="3" status="error" />
           </View>
 
-          <FontAwesome name="shopping-basket" size={26} color={COLOURS.lemonGreen} />
+          <FontAwesome
+            name="shopping-basket"
+            size={26}
+            color={COLOURS.lemonGreen}
+          />
         </TouchableOpacity>
       </View>
-    )
+    );
   }
 
   return (
-
     <View style={styles.container}>
       {renderHeader()}
       {/* <SearchComponent /> */}
@@ -106,7 +118,6 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-
     flex: 1,
     paddingTop: 50,
     backgroundColor: "#0C004D",
@@ -115,7 +126,5 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 150,
     resizeMode: "cover",
-
   },
-
 });

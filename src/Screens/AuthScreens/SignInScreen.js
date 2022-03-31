@@ -18,12 +18,7 @@ const SignInScreen = ({ navigation }) => {
     <View style={styles.container}>
       <StatusBar />
       <View style={styles.header}>
-        <AntDesign
-          name="arrowleft"
-          size={30}
-          color="#F2F3F4"
-          style={{ marginLeft: 20, paddingTop: 25, marginRight: 55 }}
-        />
+
         <Text
           style={{
             fontWeight: "bold",
@@ -38,20 +33,21 @@ const SignInScreen = ({ navigation }) => {
       <Text style={styles.singInText}>Sign-In</Text>
       <Text
         style={{
-          fontSize: 17,
+          fontSize: 22,
           textAlign: "center",
           paddingHorizontal: 30,
           marginTop: 20,
           color: COLOURS.lemonGreen
         }}
       >
-        Please enter the email and password registered with your
+        Please enter the email and password registered with your {''}
         <Text
-          style={{ color: "#fe5d26", fontWeight: "bold", fontStyle: "italic" }}
+          style={{ color: "#FA6C09", fontWeight: "bold", fontStyle: "italic" }}
         >
 
-          DoneWithIt
+          DoneWithIt {''}
         </Text>
+
         account
       </Text>
       <View style={styles.form}>
@@ -76,7 +72,7 @@ const SignInScreen = ({ navigation }) => {
           style={{
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "#FA4B04",
+            backgroundColor: "#FA6C09",
             width: "100%",
             height: 50,
             marginVertical: 30,
@@ -162,7 +158,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: COLOURS.backgroundDark,
     alignItems: "center",
-    paddingVertical: 10,
+    justifyContent: "center",
+    paddingVertical: 15,
   },
 
   form: {

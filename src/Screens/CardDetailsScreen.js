@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -10,28 +10,28 @@ import {
   Dimensions,
   Animated,
   ImageBackground,
-
-} from 'react-native';
-import { COLOURS, Items } from '../global/Database';
-import Entypo from 'react-native-vector-icons/Entypo';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+} from "react-native";
+import { COLOURS, Items } from "../global/Database";
+import Entypo from "react-native-vector-icons/Entypo";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { showMessage, hideMessage } from "react-native-flash-message";
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome } from "@expo/vector-icons";
+import Maps from "../Components/Const/Maps";
 
 const CardDetailsScreen = ({ route, navigation }) => {
   const { productID } = route.params;
 
   const [product, setProduct] = useState({});
 
-  const width = Dimensions.get('window').width;
+  const width = Dimensions.get("window").width;
 
   const scrollX = new Animated.Value(0);
 
   let position = Animated.divide(scrollX, width);
 
   useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
+    const unsubscribe = navigation.addListener("focus", () => {
       getDataFromDB();
     });
 
@@ -51,15 +51,15 @@ const CardDetailsScreen = ({ route, navigation }) => {
 
   //add to cart
 
-  const addToCart = async id => {
-    let itemArray = await AsyncStorage.getItem('cartItems');
+  const addToCart = async (id) => {
+    let itemArray = await AsyncStorage.getItem("cartItems");
     itemArray = JSON.parse(itemArray);
     if (itemArray) {
       let array = itemArray;
       array.push(id);
 
       try {
-        await AsyncStorage.setItem('cartItems', JSON.stringify(array));
+        await AsyncStorage.setItem("cartItems", JSON.stringify(array));
         showMessage({
           message: "Item Added Successfully to cart",
           fontSize: 40,
@@ -67,12 +67,8 @@ const CardDetailsScreen = ({ route, navigation }) => {
           // animated: "true",
           backgroundColor: COLOURS.backgroundDark,
           animationDuration: 500,
-
-
-
-
         });
-        navigation.navigate('Home');
+        navigation.navigate("Home");
       } catch (error) {
         return error;
       }
@@ -80,12 +76,9 @@ const CardDetailsScreen = ({ route, navigation }) => {
       let array = [];
       array.push(id);
       try {
-        await AsyncStorage.setItem('cartItems', JSON.stringify(array));
-        showMessage.show(
-          '',
-          showMessage.SHORT,
-        );
-        navigation.navigate('Home');
+        await AsyncStorage.setItem("cartItems", JSON.stringify(array));
+        showMessage.show("", showMessage.SHORT);
+        navigation.navigate("Home");
       } catch (error) {
         return error;
       }
@@ -99,28 +92,40 @@ const CardDetailsScreen = ({ route, navigation }) => {
         style={{
           width: width,
           height: 300,
-          alignItems: 'center',
-          justifyContent: 'center',
-
-
-
-        }}>
-        <View style={{ flex: 1, width: '100%', height: '100%', borderBottomColor: COLOURS.lemonGreen, borderBottomEndRadius: 30, borderBottomLeftRadius: 30 }}>
-
-          <TouchableOpacity onPress={() => navigation.goBack('Home')} style={{ position: "absolute", top: 40, bottom: 0, left: -810 }}>
-            <FontAwesome name="arrow-circle-left" size={40} color={COLOURS.lemonGreen} />
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <View
+          style={{
+            flex: 1,
+            width: "100%",
+            height: "100%",
+            borderBottomColor: COLOURS.lemonGreen,
+            borderBottomEndRadius: 30,
+            borderBottomLeftRadius: 30,
+          }}
+        >
+          <TouchableOpacity
+            onPress={() => navigation.goBack("Home")}
+            style={{ position: "absolute", top: 40, bottom: 0, left: -810 }}
+          >
+            <FontAwesome
+              name="arrow-circle-left"
+              size={40}
+              color={COLOURS.lemonGreen}
+            />
           </TouchableOpacity>
 
           <Image
             source={item}
             style={{
-              width: '100%',
-              height: '100%',
-              resizeMode: 'cover',
+              width: "100%",
+              height: "100%",
+              resizeMode: "cover",
               padding: 20,
               borderBottomEndRadius: 20,
-              borderBottomLeftRadius: 20
-
+              borderBottomLeftRadius: 20,
             }}
           />
         </View>
@@ -132,11 +137,12 @@ const CardDetailsScreen = ({ route, navigation }) => {
     <View
       style={{
         flex: 1,
-        width: '100%',
-        height: '100%',
+        width: "100%",
+        height: "100%",
         backgroundColor: "#0C004D",
-        position: 'relative',
-      }}>
+        position: "relative",
+      }}
+    >
       <StatusBar
         backgroundColor={COLOURS.backgroundLight}
         barStyle="dark-content"
@@ -144,15 +150,16 @@ const CardDetailsScreen = ({ route, navigation }) => {
       <ScrollView>
         <View
           style={{
-            width: '100%',
+            width: "100%",
             backgroundColor: COLOURS.backgroundDark,
             borderBottomRightRadius: 20,
             borderBottomLeftRadius: 20,
-            position: 'relative',
-            justifyContent: 'center',
-            alignItems: 'center',
+            position: "relative",
+            justifyContent: "center",
+            alignItems: "center",
             marginBottom: 4,
-          }}>
+          }}
+        >
           <FlatList
             data={product.productImageList ? product.productImageList : null}
             horizontal
@@ -163,39 +170,40 @@ const CardDetailsScreen = ({ route, navigation }) => {
             bounces={false}
             onScroll={Animated.event(
               [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-              { useNativeDriver: false },
+              { useNativeDriver: false }
             )}
           />
           <View
             style={{
-              width: '100%',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
+              width: "100%",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
               marginBottom: 16,
               marginTop: 20,
-
-            }}>
+            }}
+          >
             {product.productImageList
               ? product.productImageList.map((data, index) => {
-                let opacity = position.interpolate({
-                  inputRange: [index - 1, index, index + 1],
-                  outputRange: [0.2, 1, 0.2],
-                  extrapolate: 'clamp',
-                });
-                return (
-                  <Animated.View
-                    key={index}
-                    style={{
-                      width: 15,
-                      height: 15,
-                      backgroundColor: COLOURS.lemonGreen,
-                      opacity,
-                      marginHorizontal: 2,
-                      borderRadius: 10,
-                    }}></Animated.View>
-                );
-              })
+                  let opacity = position.interpolate({
+                    inputRange: [index - 1, index, index + 1],
+                    outputRange: [0.2, 1, 0.2],
+                    extrapolate: "clamp",
+                  });
+                  return (
+                    <Animated.View
+                      key={index}
+                      style={{
+                        width: 15,
+                        height: 15,
+                        backgroundColor: COLOURS.lemonGreen,
+                        opacity,
+                        marginHorizontal: 2,
+                        borderRadius: 10,
+                      }}
+                    ></Animated.View>
+                  );
+                })
               : null}
           </View>
         </View>
@@ -203,13 +211,15 @@ const CardDetailsScreen = ({ route, navigation }) => {
           style={{
             paddingHorizontal: 16,
             marginTop: 6,
-          }}>
+          }}
+        >
           <View
             style={{
-              flexDirection: 'row',
-              alignItems: 'center',
+              flexDirection: "row",
+              alignItems: "center",
               marginVertical: 14,
-            }}>
+            }}
+          >
             <Entypo
               name="shopping-cart"
               style={{
@@ -222,26 +232,29 @@ const CardDetailsScreen = ({ route, navigation }) => {
               style={{
                 fontSize: 20,
                 color: COLOURS.lemonGreen,
-              }}>
+              }}
+            >
               Shopping
             </Text>
           </View>
           <View
             style={{
-              flexDirection: 'row',
+              flexDirection: "row",
               marginVertical: 4,
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}>
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
             <Text
               style={{
                 fontSize: 24,
-                fontWeight: '600',
+                fontWeight: "600",
                 letterSpacing: 0.5,
                 marginVertical: 4,
                 color: COLOURS.lemonGreen,
-                maxWidth: '84%',
-              }}>
+                maxWidth: "84%",
+              }}
+            >
               {product.productName}
             </Text>
             <Ionicons
@@ -259,43 +272,47 @@ const CardDetailsScreen = ({ route, navigation }) => {
             style={{
               fontSize: 16,
               color: COLOURS.lemonGreen,
-              fontWeight: '400',
+              fontWeight: "400",
               letterSpacing: 1,
               opacity: 0.5,
               lineHeight: 20,
-              maxWidth: '85%',
+              maxWidth: "85%",
               maxHeight: 44,
               marginBottom: 18,
-              fontWeight: "bold"
-            }}>
+              fontWeight: "bold",
+            }}
+          >
             {product.description}
           </Text>
           <View
             style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
               marginVertical: 14,
               borderBottomColor: COLOURS.backgroundLight,
               borderBottomWidth: 1,
               paddingBottom: 20,
-            }}>
+            }}
+          >
             <View
               style={{
-                flexDirection: 'row',
-                width: '80%',
-                alignItems: 'center',
-              }}>
+                flexDirection: "row",
+                width: "80%",
+                alignItems: "center",
+              }}
+            >
               <View
                 style={{
                   color: COLOURS.lemonGreen,
                   backgroundColor: COLOURS.lemonGreen,
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  alignItems: "center",
+                  justifyContent: "center",
                   padding: 12,
                   borderRadius: 100,
                   marginRight: 10,
-                }}>
+                }}
+              >
                 <Entypo
                   name="location-pin"
                   style={{
@@ -304,7 +321,10 @@ const CardDetailsScreen = ({ route, navigation }) => {
                   }}
                 />
               </View>
-              <Text style={{ color: COLOURS.lemonGreen, fontSize: 18 }}>{product.location}{'\n'}17-001, Batume</Text>
+              <Text style={{ color: COLOURS.lemonGreen, fontSize: 18 }}>
+                {product.location}
+                {"\n"}
+              </Text>
             </View>
             <Entypo
               name="chevron-right"
@@ -316,53 +336,69 @@ const CardDetailsScreen = ({ route, navigation }) => {
           </View>
           <View
             style={{
+              width: "100%",
+              height: 190,
+              backgroundColor: "#fff",
+            }}
+          >
+            <Maps />
+          </View>
+          <View
+            style={{
               paddingHorizontal: 16,
-            }}>
+            }}
+          >
             <Text
               style={{
                 fontSize: 18,
-                fontWeight: '500',
-                maxWidth: '85%',
+                fontWeight: "500",
+                maxWidth: "85%",
                 color: COLOURS.lemonGreen,
                 marginBottom: 4,
-              }}>
+              }}
+            >
               &#x20B5;{product.productPrice}.00
             </Text>
-            <Text style={{ color: COLOURS.lemonGreen }}>
-              Tax Rate 2%~ &#x20B5;{product.productPrice / 20} ($
-              {product.productPrice + product.productPrice / 20})
-            </Text>
+            {/* <Text style={{ color: COLOURS.lemonGreen }}>
+              &#x20B5;{product.productPrice}
+            </Text> */}
           </View>
         </View>
       </ScrollView>
 
       <View
         style={{
-          position: 'absolute',
+          position: "absolute",
           bottom: 10,
-          height: '8%',
-          width: '100%',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+          height: "8%",
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <TouchableOpacity
-          onPress={() => (product.isAvailable ? addToCart(product.id) : null, navigation.navigate('homeScreen'))}
+          onPress={() => (
+            product.isAvailable ? addToCart(product.id) : null,
+            navigation.navigate("homeScreen")
+          )}
           style={{
-            width: '86%',
-            height: '90%',
+            width: "86%",
+            height: "90%",
             backgroundColor: COLOURS.lemonGreen,
             borderRadius: 20,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Text
             style={{
               fontSize: 20,
-              fontWeight: 'bold',
+              fontWeight: "bold",
               letterSpacing: 1,
               color: COLOURS.blue,
-              textTransform: 'uppercase',
-            }}>
+              textTransform: "uppercase",
+            }}
+          >
             Add to card
           </Text>
         </TouchableOpacity>

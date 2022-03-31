@@ -25,6 +25,7 @@ const Maps = ({ route, navigation }) => {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
+          provider={"google"}
         >
           <Marker
             coordinate={{
@@ -32,7 +33,6 @@ const Maps = ({ route, navigation }) => {
               longitude: -0.205874,
             }}
           ></Marker>
-        
         </MapView>
       </View>
     );
@@ -49,8 +49,7 @@ const styles = StyleSheet.create({
   },
   map: {
     flex: 1,
-    bottom: 0,
-    top: 0,
+
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
   },
@@ -64,23 +63,23 @@ const styles = StyleSheet.create({
     width: 35,
     height: 35,
   },
-  // mapZoomBtn1: {
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   zIndex: 1,
-  //   position: "absolute",
-  //   top: 0.5,
-  //   right: 20,
-  //   backgroundColor: "tomato",
-  //   width: 35,
-  //   height: 35,
-  // },
-  // zoom: {
-  //   backgroundColor: "tomato",
-  //   width: 50,
-  //   height: 50,
-  //   borderTopRightRadius: 10,
-  //   borderTopLeftRadius: 10,
-  // },
+  mapZoomBtn1: {
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 1,
+    position: "absolute",
+    top: 0.5,
+    right: 20,
+    backgroundColor: "tomato",
+    width: 35,
+    height: 35,
+  },
+  zoom: {
+    backgroundColor: "tomato",
+    width: 50,
+    height: 50,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+  },
 });
 export default Maps;
